@@ -1094,13 +1094,12 @@ body { padding-bottom: 82px; }
   body { padding-bottom: 74px; }
   /* Treat the brand as the first home button so the mobile header is exactly two rows. */
   .header { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); flex-wrap: initial; align-items: center; gap: 5px; padding: 7px var(--gutter) 8px; }
-  .header .brand { grid-column: span 3; min-width: 0; min-height: 32px; justify-content: center; padding: 5px 3px; border: 1px solid #637850; border-radius: 5px; font-size: 8.5px; letter-spacing: 0; line-height: 1.05; text-align: center; }
-  .header .brand svg { display: none; }
-  .header .brand-sub { margin-top: 2px; font-size: 5px; letter-spacing: 1.4px; }
+  .header .brand { grid-column: span 4; min-width: 0; }
+  .header .brand svg { display: block; }
   .header nav#navigation { display: contents; }
   .header nav#navigation::before { display: none; }
-  .header nav#navigation a { grid-column: span 3; width: auto; min-width: 0; min-height: 32px; justify-content: center; padding: 6px 3px; overflow: hidden; text-overflow: ellipsis; font-size: 9px; letter-spacing: -.1px; }
-  .header nav#navigation a:nth-of-type(n + 4) { grid-column: span 4; }
+  .header nav#navigation a { grid-column: span 4; width: auto; min-width: 0; min-height: 32px; justify-content: center; padding: 6px 3px; overflow: hidden; text-overflow: ellipsis; font-size: 9px; letter-spacing: -.1px; }
+  .header nav#navigation a:nth-of-type(n + 3) { grid-column: span 3; }
   .header-actions { left: 8px; right: 8px; bottom: 8px; transform: none; grid-template-columns: auto 1fr; gap: 5px; }
   .utility-left, .utility-right { padding: 5px; border-radius: 12px; gap: 5px; }
   .utility-right { justify-content: space-between; }
