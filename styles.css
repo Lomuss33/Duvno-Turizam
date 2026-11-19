@@ -102,6 +102,7 @@ em { font-weight: 500; color: var(--accent); }
 .language-switch a { min-height: 44px; min-width: 25px; display: inline-grid; place-items: center; color: var(--muted); }
 .language-switch a[aria-current=true] { color: var(--accent); text-decoration: underline; text-underline-offset: 5px; }
 .language-switch>span { color: var(--muted); }
+.language-unavailable { color: var(--muted); opacity: .45; cursor: not-allowed; }
 .plan-toggle { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 8px 12px; border: 1px solid #576747; font-size: 11px; white-space: nowrap; }
 .plan-toggle>span:first-child { font-size: 22px; line-height: 1; color: var(--accent); }
 .plan-count { min-width: 18px; height: 18px; background: var(--accent); color: #14211c; border-radius: 50%; display: inline-grid; place-items: center; font-size: 10px; }
