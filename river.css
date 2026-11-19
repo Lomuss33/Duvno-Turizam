@@ -1,0 +1,122 @@
+/* A photographic field note about the region's connected water landscape. */
+.river-story { background: #142c27; border-block: 1px solid #496752; }
+.river-story .section-heading { margin-bottom: 12px; }
+.river-story .section-heading em { color: #bce2d4; }
+.river-story .section-aside { max-width: 310px; }
+.river-tabs { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 5px; margin-bottom: 6px; }
+.river-tabs>button { display: flex; align-items: center; position: relative; gap: 10px; min-height: 65px; padding: 7px 12px 7px 72px; border: 1px solid #547664; background: #213e32; text-align: left; overflow: hidden; }
+.river-tabs img { position: absolute; inset: 0 auto 0 0; height: 100%; width: 60px; object-fit: cover; opacity: .78; }
+.river-tab-number { font-size: 8px; color: #b1d4bc; align-self: start; margin-top: 5px; }
+.river-tabs strong { font: 19px/1.15 var(--serif); }
+.river-tab-arrow { font-size: 21px; margin-left: auto; color: #a4ceb1; }
+.river-tabs>button[aria-selected=true] { color: #102b24; background: #cce6cf; border-color: #cce6cf; }
+.river-tabs>button[aria-selected=true] .river-tab-number, .river-tabs>button[aria-selected=true] .river-tab-arrow { color: #2c5942; }
+.river-tabs>button[aria-selected=true] img { opacity: 1; }
+.river-tabs>button:hover img { filter: brightness(1.15); }
+.river-stage { display: grid; grid-template-columns: minmax(0,1.35fr) minmax(0,1fr); border: 1px solid #547664; background: #1c352a; }
+.river-frame { position: relative; min-height: 350px; overflow: hidden; background: #13271e; }
+.river-frame>img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.river-frame:after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg,#09231ad9,transparent 55%,#09231a66); pointer-events: none; }
+.river-frame-label { position: absolute; top: 13px; left: 13px; z-index: 1; font-size: 9px; background: #10251ddc; padding: 6px 8px; max-width: calc(100% - 72px); }
+.river-expand { position: absolute; z-index: 2; top: 10px; right: 10px; display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid #a5d4b5; background: #163123e8; color: #def4d3; font-size: 24px; }
+.river-photo-toggle { position: absolute; z-index: 2; bottom: 15px; left: 14px; display: flex; gap: 9px; align-items: center; font-size: 10px; border: 1px solid #9fc2a3; padding: 8px 10px; background: #0d251bd9; }
+.river-photo-toggle>span { font-size: 19px; }
+.river-diagram { position: absolute; z-index: 1; bottom: 11px; right: 13px; width: min(57%,330px); background: #0c241cde; padding: 6px 10px; border: 1px solid #72977c; }
+.river-diagram svg { display: block; width: 100%; height: auto; }
+.river-ground { fill: #58765b55; }
+.river-surface { fill: none; stroke: #bee5d5; stroke-width: 3; }
+.river-below { fill: none; stroke: #a0ccbc; stroke-width: 2; stroke-dasharray: 5 5; }
+.river-diagram circle { fill: #203e2c; stroke: #b5dbb6; stroke-width: 1; }
+.river-diagram g text { fill: #d8ead0; text-anchor: middle; font: 8px var(--sans); }
+.river-diagram .is-current circle { fill: var(--accent); stroke: var(--accent); }
+.river-diagram .is-current text { fill: #132c1d; }
+.river-level { fill: #b1c9b3; font: 6px var(--sans); letter-spacing: 1px; }
+.river-diagram>span { display: block; color: #c2d4bc; font-size: 7px; margin-top: 3px; }
+.river-copy { padding: 20px 22px 17px; min-width: 0; }
+.river-copy>.eyebrow { font-size: 8px; line-height: 1.5; letter-spacing: 1px; color: #c9dbb7; margin-bottom: 10px; }
+.river-copy>.eyebrow>span { color: #7aa98d; margin-inline: 6px; }
+.river-copy h3 { font-size: clamp(28px,2.9vw,40px); line-height: 1.12; margin-bottom: 11px; }
+.river-copy h3 em { color: #c1e1d0; }
+.river-description { font-size: 12px; line-height: 1.7; color: #d0deca; }
+.river-fact { display: flex; gap: 12px; align-items: center; border-block: 1px solid #54725c; margin: 13px 0 10px; padding: 8px 0; }
+.river-fact>span { font: 38px/1 var(--serif); color: #bce2d4; }
+.river-fact p { font-size: 10px; color: #becfba; line-height: 1.5; }
+.river-fact strong { display: block; font-size: 11px; color: #e2eacf; font-weight: 500; margin-bottom: 2px; }
+.river-place-links { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
+.river-place-links>a { border: 1px solid #73936b; padding: 5px 8px; font-size: 10px; color: var(--accent); }
+.river-local>.eyebrow { font-size: 7px; letter-spacing: 1.1px; margin-bottom: 6px; }
+.river-local article { position: relative; margin-top: 5px; background: #254332; padding-right: 43px; border: 1px solid #4d6a51; }
+.river-local article>a { display: flex; align-items: center; gap: 10px; min-height: 49px; }
+.river-local article img { height: 49px; width: 53px; object-fit: cover; }
+.river-local article>a>span { min-width: 0; padding-block: 5px; }
+.river-local article small { display: block; font-size: 6px; color: #c7d9b3; letter-spacing: .5px; margin-bottom: 4px; }
+.river-local article strong { display: block; font: 17px/1.2 var(--serif); }
+.river-local .save-place.compact { top: 50%; right: 7px; transform: translateY(-50%); }
+.river-local-note { font-size: 7px; line-height: 1.5; color: #b5c8ac; margin: 5px 0 0; }
+.river-actions { display: flex; align-items: center; gap: 10px; margin-top: 13px; flex-wrap: wrap; }
+.river-actions>.button { font-size: 9px; padding: 8px 10px; gap: 12px; min-height: 34px; }
+.river-actions>a { color: #d5e2c3; font-size: 9px; text-underline-offset: 3px; text-decoration: underline; }
+.river-step-buttons { display: flex; gap: 4px; margin-left: auto; }
+.river-step-buttons button { display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid #79926b; color: var(--accent); font-size: 19px; }
+.river-story-footer { display: flex; justify-content: space-between; align-items: start; gap: 25px; padding-top: 10px; }
+.river-story-footer>p { font-size: 9px; line-height: 1.6; color: #bdcdb4; max-width: 750px; }
+.river-story-footer>button { flex: 0 0 auto; font-size: 10px; color: var(--accent); padding: 3px 0 6px; border-bottom: 1px solid #78996c; }
+.river-story-footer>button>span { margin-left: 10px; }
+.river-guide-link { display: flex; align-items: center; gap: 13px; padding: 12px; border: 1px solid #72927a; margin-top: 10px; background: #1e3b2e; }
+.river-guide-link>span:first-child { font: 38px/1 var(--serif); color: #c1e1d0; }
+.river-guide-link small { display: block; font-size: 7px; color: #c5d5b1; margin-bottom: 6px; }
+.river-guide-link strong { font-size: 11px; color: var(--accent); font-weight: 500; }
+.no-js .river-tabs, .no-js .river-actions>button, .no-js .river-step-buttons, .no-js .river-story-footer>button, .no-js .river-photo-toggle { display: none; }
+.river-static details { border-top: 1px solid #5f7a61; padding: 10px 0; }
+.river-static summary { font: 22px var(--serif); cursor: pointer; }
+.river-static h3 { font-size: 26px; margin-top: 10px; }
+.river-static p { font-size: 12px; margin: 10px 0; max-width: 700px; }
+.river-static a { display: inline-block; margin: 0 15px 5px 0; color: var(--accent); font-size: 11px; }
+@media(max-width:1000px) {
+  .river-tabs>button { padding-left: 60px; gap: 7px; }
+  .river-tabs img { width: 50px; }
+  .river-tabs strong { font-size: 17px; }
+  .river-tab-arrow { font-size: 17px; }
+  .river-stage { grid-template-columns: 1fr 1fr; }
+  .river-copy { padding: 16px; }
+  .river-description { font-size: 11px; }
+  .river-diagram { width: 68%; bottom: 67px; }
+  .river-story-footer>p { max-width: 560px; }
+}
+@media(max-width:700px) {
+  .river-story .section-heading { display: block; }
+  .river-story .section-heading h2 { font-size: 32px; line-height: 1.1; }
+  .river-story .section-heading .eyebrow { font-size: 7px; letter-spacing: 1px; }
+  .river-story .section-aside { max-width: none; margin-top: 7px; padding-top: 0; font-size: 10px; line-height: 1.5; }
+  .river-tabs { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 4px; }
+  .river-tabs>button { min-height: 49px; padding: 7px 8px 7px 61px; gap: 5px; }
+  .river-tabs strong { font-size: 16px; }
+  .river-tab-number { position: absolute; top: 4px; left: 4px; padding: 3px; background: #102b24e8; color: #e0edcb; font-size: 6px; margin: 0; }
+  .river-tabs>button[aria-selected=true] .river-tab-number { color: #e0edcb; }
+  .river-tab-arrow { font-size: 16px; }
+  .river-stage { grid-template-columns: minmax(0,1fr); }
+  .river-frame { min-height: 0; height: 228px; }
+  .river-frame-label { font-size: 7px; left: 9px; top: 9px; }
+  .river-expand { width: 31px; height: 31px; right: 8px; top: 8px; font-size: 21px; }
+  .river-diagram { width: 58%; bottom: 10px; right: 10px; padding: 5px 7px; }
+  .river-diagram>span { font-size: 6px; }
+  .river-photo-toggle { bottom: 12px; left: 10px; padding: 6px 8px; font-size: 9px; }
+  .river-photo-toggle>span { font-size: 17px; }
+  .river-copy { padding: 14px; }
+  .river-copy h3 { font-size: 30px; margin-bottom: 9px; }
+  .river-copy>.eyebrow { margin-bottom: 7px; font-size: 7px; }
+  .river-description { font-size: 11px; }
+  .river-fact { margin: 10px 0 8px; padding-block: 7px; }
+  .river-fact p { font-size: 9px; }
+  .river-place-links { margin-bottom: 11px; }
+  .river-place-links>a { font-size: 9px; }
+  .river-local article>a { min-height: 43px; }
+  .river-local article img { width: 48px; height: 43px; }
+  .river-local article strong { font-size: 16px; }
+  .river-actions { gap: 8px; margin-top: 10px; }
+  .river-actions>.button, .river-actions>a { font-size: 8px; }
+  .river-step-buttons button { width: 29px; height: 29px; font-size: 17px; }
+  .river-story-footer { flex-direction: column; gap: 8px; padding-top: 8px; }
+  .river-story-footer>p { font-size: 8px; }
+  .river-story-footer>button { font-size: 9px; }
+}

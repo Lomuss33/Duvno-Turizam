@@ -1,0 +1,32 @@
+import { test, expect } from '@playwright/test';
+
+test('river chapters preserve locale and hosting paths, switch photographs and save their places', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('./en/?river=underground#vodene-price');
+  const stage = page.locator('#river-stage');
+  const underground = page.locator('[data-river-chapter=underground]');
+  await expect(underground).toHaveAttribute('aria-selected', 'true');
+  await expect(stage.locator('h3')).toContainText('Out of sight');
+  await underground.focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(page.locator('[data-river-chapter=lake]')).toBeFocused();
+  await expect(stage.locator('.river-frame>img')).toHaveAttribute('src', /busko-shore.webp$/);
+  await stage.locator('[data-river-photo]').click();
+  await expect(stage.locator('.river-frame>img')).toHaveAttribute('src', /\/lake.webp$/);
+  await stage.locator('[data-river-save]').click();
+  await expect(page.locator('#trip-dialog .trip-item-content h3')).toHaveText(['Buško Lake', 'Carmel of St Elijah']);
+  await page.keyboard.press('Escape');
+  await page.locator('[data-language=hr]').click();
+  await expect(page).toHaveURL(/\?river=lake#vodene-price$/);
+  await expect(page.locator('[data-river-chapter=lake]')).toHaveAttribute('aria-selected', 'true');
+  await expect(stage.locator('h3')).toContainText('Ponovno na svjetlu');
+  await page.setViewportSize({ width: 320, height: 760 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.goto('./en/places/strzanj.html');
+  await expect(page.locator('main h1')).toHaveText('Stržanj Springs');
+  await expect(page.locator('.river-guide-link')).toHaveAttribute('href', /\/en\/\?river=springs#vodene-price$/);
+  await page.locator('.river-guide-link').click();
+  await expect(page.locator('[data-river-chapter=springs]')).toHaveAttribute('aria-selected', 'true');
+  expect(errors).toEqual([]);
+});

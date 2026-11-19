@@ -1,0 +1,188 @@
+/* Six-pillar portal navigation, homepage overview, and dedicated thematic pages. */
+.pillar-main { padding-left: 0; }
+.pillar-navigation { position: fixed; left: 0; top: 64px; bottom: 0; z-index: 18; display: flex; flex-direction: column; width: 166px; padding: 14px 8px; margin: 0; gap: 6px; background: #122219f5; border-right: 1px solid var(--line); backdrop-filter: blur(16px); }
+.pillar-navigation { display: none !important; }
+.pillar-navigation::before { content: 'DUVNO / INDEX'; display: block; padding: 0 8px 9px; color: var(--muted); font: 8px/1 var(--mono); letter-spacing: 1.2px; }
+.pillar-navigation a { display: flex; align-items: center; gap: 8px; padding: 9px 11px; border: 1px solid #506649; border-right: 0; font-size: 10px; min-height: 40px; background: #192b20; }
+.pillar-navigation a { border-right: 1px solid #506649; }
+.pillar-navigation a>span { font: italic 16px var(--serif); color: var(--muted); }
+.pillar-navigation a>strong { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pillar-navigation i { margin-left: auto; font-style: normal; color: var(--accent); }
+.pillar-navigation a[aria-current="page"] { background: var(--accent); color: #14211c; }
+.pillar-navigation a[aria-current="page"]>span, .pillar-navigation a[aria-current="page"] i { color: #14211c; }
+.pillar-navigation a:hover:not([aria-current="page"]) { background: #263c2b; color: var(--accent); }
+
+.portal-overview { background: #16271d; border-bottom: 1px solid var(--line); padding-top: 18px; padding-bottom: 18px; }
+.portal-grid { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 7px; }
+.portal-card { display: flex; flex-direction: column; border: 1px solid #4d6245; background: #1e3225; min-width: 0; }
+.portal-card.is-current { border-color: var(--accent); background: #253b29; }
+.portal-card-media { position: relative; height: 118px; overflow: hidden; display: block; }
+.portal-card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s; }
+.portal-card:hover .portal-card-media img { transform: scale(1.05); }
+.portal-index { position: absolute; top: 8px; left: 8px; padding: 2px 6px; background: #122219d9; border: 1px solid #8ea36c; font: italic 14px var(--serif); color: var(--accent); }
+.portal-card-body { padding: 11px; display: flex; flex-direction: column; flex: 1; }
+.portal-card-body .eyebrow { font-size: 6.5px; letter-spacing: .9px; margin-bottom: 5px; }
+.portal-card-body h3 { font-size: 20px; line-height: 1.12; margin-bottom: 6px; }
+.portal-card-body h3 a:hover { color: var(--accent); }
+.portal-card-body>p:not(.eyebrow) { font-size: 10px; line-height: 1.5; color: #cbd8bc; margin-bottom: 10px; }
+.portal-card-link { margin-top: auto; font-size: 9px; color: var(--accent); font-weight: 600; }
+
+.pillar-intro { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4%; align-items: center; border-bottom: 1px solid var(--line); background: #182a1f; }
+.pillar-intro .area-lead { margin: 8px 0 10px; }
+.pillar-intro-actions { display: flex; flex-direction: column; align-items: start; gap: 12px; }
+
+/* Each thematic page gets its own editorial signal, inspired by the personal site's
+   distinct section treatments rather than one universal tourism-card template. */
+.pillar-history { --pillar-accent: #d5b172; --pillar-panel: #25251f; }
+.pillar-culture { --pillar-accent: #e39b70; --pillar-panel: #28221f; }
+.pillar-religion { --pillar-accent: #9fc8b1; --pillar-panel: #1e2b2a; }
+.pillar-people { --pillar-accent: #c79ae0; --pillar-panel: #27212c; }
+.pillar-projects { --pillar-accent: #82c3d6; --pillar-panel: #1d2930; }
+.pillar-history .pillar-intro .area-lead, .pillar-history .history-eras-grid h3, .pillar-history .name-timeline-list h3 { letter-spacing: -.7px; }
+.pillar-culture .pillar-intro, .pillar-culture .pillar-section { font-family: var(--sans); }
+.pillar-culture .pillar-entry-copy h3, .pillar-culture .pillar-intro .area-lead { font-family: var(--sans); font-weight: 600; letter-spacing: -.8px; }
+.pillar-religion .pillar-entry-copy h3, .pillar-religion .pillar-intro .area-lead { font-family: var(--serif); letter-spacing: -.4px; }
+.pillar-people .pillar-entry-card { border-radius: 2px 16px 2px 2px; overflow: hidden; }
+.pillar-people .pillar-entry-copy .pillar-role { font-family: var(--mono); font-size: 9px; letter-spacing: .3px; }
+.pillar-projects .pillar-profile-strip strong, .pillar-projects .project-period, .pillar-projects .project-status-badge, .pillar-projects .news-meta { font-family: var(--mono); }
+.pillar-projects .pillar-profile-strip strong { font-size: 16px; letter-spacing: -.3px; }
+.pillar-projects .project-card { border-left: 3px solid transparent; }
+.pillar-projects .project-card.status-active { border-left-color: var(--pillar-accent); }
+.pillar-projects .project-card.status-planned { border-left-color: #e6be8a; }
+.pillar-projects .project-card.status-completed { border-left-color: #9fd4b2; }
+.pillar-projects .project-card-top { background: linear-gradient(90deg, #192a32, #1b2f22); }
+.pillar-projects .pillar-entry-detail { font-family: var(--mono); font-size: 9px !important; letter-spacing: -.15px; }
+.pillar-main .other-areas>div { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 7px; }
+.pillar-main .other-areas>div>a { position: relative; min-height: 155px; overflow: hidden; border: 1px solid #4f6648; background: #1a2d20; }
+.pillar-main .other-areas>div>a img { width: 100%; height: 100%; object-fit: cover; opacity: .74; transition: transform .35s, opacity .35s; }
+.pillar-main .other-areas>div>a:hover img { transform: scale(1.06); opacity: .95; }
+.pillar-main .other-areas>div>a>span { position: absolute; inset: auto 0 0; display: flex; flex-direction: column; gap: 3px; padding: 28px 11px 10px; background: linear-gradient(transparent, #102219f2); }
+.pillar-main .other-areas>div>a small { color: var(--pillar-accent, var(--accent)); font-size: 7px; letter-spacing: .8px; }
+.pillar-main .other-areas>div>a strong { font: 500 18px/1.1 var(--serif); }
+:root[data-theme="light"] .pillar-main .other-areas>div>a { background: #fff; border-color: #c5d0bf; }
+.pillar-main .pillar-hero { border-bottom: 3px solid var(--pillar-accent, var(--accent)); }
+.pillar-history .pillar-hero { height: 380px; }
+.pillar-history .pillar-hero .area-hero-cover>img { filter: sepia(.18) saturate(.82); }
+.pillar-culture .pillar-hero .area-hero-copy { inset: auto 30px 26px; }
+.pillar-culture .pillar-hero .area-hero-copy h1 { max-width: 720px; }
+.pillar-religion .pillar-hero .area-hero-shade { background: linear-gradient(0deg, #132a27f5, #132a2760 80%); }
+.pillar-people .pillar-hero .area-hero-cover>img { filter: saturate(.72) contrast(1.08); }
+.pillar-projects .pillar-hero { height: 320px; }
+.pillar-projects .pillar-hero .area-hero-copy h1 { font-size: clamp(42px, 5.7vw, 72px); }
+.pillar-main .pillar-navigation a[aria-current="page"] { background: var(--pillar-accent, var(--accent)); }
+.pillar-main .pillar-filter-bar button[aria-pressed="true"] { background: var(--pillar-accent, var(--accent)); border-color: var(--pillar-accent, var(--accent)); }
+.pillar-main .pillar-entry-media>span, .pillar-main .name-step, .pillar-main #pillar-filter-count { color: var(--pillar-accent, var(--accent)); }
+.pillar-profile-strip { display: grid; grid-template-columns: 1.4fr 1fr 1fr auto; gap: 1px; padding: 1px var(--gutter); background: var(--line); border-bottom: 1px solid var(--line); }
+.pillar-profile-strip>div, .pillar-profile-strip>a { display: flex; flex-direction: column; justify-content: center; min-height: 72px; padding: 11px 14px; background: var(--pillar-panel, #1c2e22); }
+.pillar-profile-strip strong { color: var(--pillar-accent, var(--accent)); font: 500 19px/1.1 var(--serif); }
+.pillar-profile-strip strong small { font: 500 10px var(--sans); color: var(--muted); }
+.pillar-profile-strip .profile-kicker { margin-bottom: 5px; color: var(--muted); font-size: 8px; letter-spacing: 1.2px; }
+.pillar-profile-strip>a { align-items: flex-end; color: var(--pillar-accent, var(--accent)); font-size: 10px; font-weight: 600; white-space: nowrap; }
+.pillar-history .history-eras-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.pillar-history .history-eras-grid .pillar-entry-card { display: flex; flex-direction: column; }
+.pillar-history .history-eras-grid .pillar-entry-media { min-height: 160px; height: 160px; }
+.pillar-culture .pillar-cards-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.pillar-culture .pillar-entry-card, .pillar-religion .pillar-entry-card { display: flex; flex-direction: column; }
+.pillar-culture .pillar-entry-media, .pillar-religion .pillar-entry-media { min-height: 145px; height: 145px; }
+.pillar-religion .pillar-cards-grid { grid-template-columns: repeat(5,minmax(0,1fr)); }
+.pillar-religion .pillar-entry-copy h3 { font-size: 20px; }
+.pillar-people .people-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+.pillar-people .pillar-entry-card { display: flex; flex-direction: column; }
+.pillar-people .pillar-entry-media { min-height: 210px; height: 210px; }
+.pillar-people .pillar-entry-copy h3 { font-size: 22px; }
+.pillar-projects .projects-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.pillar-projects .project-card { display: flex; flex-direction: column; }
+.pillar-projects .project-card-top { min-height: 48px; }
+.pillar-projects .pillar-entry-copy h3 { font-size: 22px; }
+:root[data-theme="light"] .pillar-profile-strip>div, :root[data-theme="light"] .pillar-profile-strip>a { background: #fff; }
+:root[data-theme="light"] .pillar-navigation { background: #edf1e8f5; }
+:root[data-theme="light"] .pillar-entry-card, :root[data-theme="light"] .portal-card, :root[data-theme="light"] .news-digest-card { background: #fff; border-color: #c5d0bf; }
+
+.pillar-section { background: #1c2e22; border-bottom: 1px solid var(--line); }
+.pillar-filter-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; margin-bottom: 14px; }
+.pillar-filter-bar button { min-height: 33px; padding: 6px 11px; border: 1px solid #596f4b; font-size: 10px; background: #15251b; }
+.pillar-filter-bar button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #14211c; font-weight: 600; }
+#pillar-filter-count { margin-left: auto; font: italic 22px var(--serif); color: var(--accent); }
+
+.pillar-cards-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 9px; }
+.people-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.pillar-entry-card { display: grid; grid-template-columns: 185px minmax(0,1fr); border: 1px solid #4e6445; background: #15251b; min-width: 0; }
+.pillar-entry-media { position: relative; min-height: 185px; overflow: hidden; }
+.pillar-entry-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.pillar-entry-media>span { position: absolute; top: 9px; left: 9px; padding: 3px 7px; background: #12231ad9; color: var(--accent); font: italic 18px var(--serif); border: 1px solid #7f9660; }
+.pillar-entry-copy { padding: 15px 16px; display: flex; flex-direction: column; min-width: 0; }
+.pillar-entry-copy .eyebrow { font-size: 7.5px; margin-bottom: 6px; }
+.pillar-entry-copy h3 { font-size: 25px; line-height: 1.15; margin-bottom: 6px; }
+.pillar-role { font-size: 10px; color: #e6c896; margin-bottom: 8px; font-weight: 500; }
+.pillar-entry-copy>p:not(.eyebrow):not(.pillar-role) { font-size: 11.5px; line-height: 1.6; color: #d3dec5; margin-bottom: 9px; }
+.pillar-entry-detail { font-size: 10.5px !important; color: #bdd0ab !important; border-left: 2px solid #7c935b; padding-left: 10px; }
+.pillar-entry-meta { font-size: 10px; color: var(--accent); margin-bottom: 9px; }
+.pillar-facts-list { margin: 0 0 10px; padding-left: 16px; font-size: 10.5px; color: #c7d6b7; line-height: 1.6; }
+.pillar-etiquette { font-size: 10px !important; color: #ebd0a9 !important; background: #283825; padding: 8px 10px; border-left: 2px solid #dfa96f; }
+.pillar-entry-links { margin-top: auto; padding-top: 8px; display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; }
+.pillar-entry-links a { font-size: 10px; color: var(--accent); border-bottom: 1px solid #6b8252; padding-bottom: 2px; }
+.pillar-entry-links .pillar-source-link { color: #c5d4b4; margin-left: auto; }
+
+.pillar-names-section { background: #16261c; border-bottom: 1px solid var(--line); }
+.name-timeline-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7,minmax(0,1fr)); gap: 7px; }
+.name-timeline-list li { border: 1px solid #4d6344; background: #1e3124; padding: 12px; display: flex; flex-direction: column; gap: 6px; }
+.name-step { font: italic 21px var(--serif); color: var(--accent); }
+.name-timeline-list small { display: block; font-size: 7.5px; letter-spacing: .7px; text-transform: uppercase; color: #d9c496; margin-bottom: 4px; }
+.name-timeline-list h3 { font-size: 21px; margin-bottom: 6px; }
+.name-timeline-list p { font-size: 10.5px; line-height: 1.55; color: #cbd8bc; margin: 0; }
+
+.projects-grid .project-card { grid-template-columns: 1fr; }
+.project-card-top { display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-bottom: 1px solid #3f5439; background: #1b2f22; }
+.project-status-badge { font-size: 8px; font-weight: 700; letter-spacing: .9px; padding: 4px 8px; text-transform: uppercase; }
+.project-status-badge.status-active { background: var(--accent); color: #14211c; }
+.project-status-badge.status-planned { background: #e6be8a; color: #1c2418; }
+.project-status-badge.status-completed { background: #9fd4b2; color: #12261b; }
+.project-period { font: italic 15px var(--serif); color: #d3dfc2; }
+.project-track { display: inline-flex; align-items: center; gap: 4px; margin-left: auto; }
+.project-track i { width: 7px; height: 7px; display: block; border: 1px solid #819576; border-radius: 50%; }
+.project-card.status-active .project-track i:nth-child(-n+2), .project-card.status-planned .project-track i:first-child, .project-card.status-completed .project-track i { background: var(--pillar-accent, var(--accent)); border-color: var(--pillar-accent, var(--accent)); }
+.project-card.status-active .project-track i:nth-child(2) { box-shadow: 8px 0 0 -1px var(--pillar-accent, var(--accent)); }
+
+.pillar-news-section { background: #17281e; border-bottom: 1px solid var(--line); }
+.news-digest-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 8px; }
+.news-digest-card { border: 1px solid #4e6345; background: #1f3326; padding: 14px; display: flex; flex-direction: column; }
+.news-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 8px; letter-spacing: .8px; color: var(--accent); margin-bottom: 8px; }
+.news-meta time { color: var(--muted); }
+.news-digest-card h3 { font-size: 21px; line-height: 1.2; margin-bottom: 8px; }
+.news-digest-card p { font-size: 11px; color: #ccd9bd; line-height: 1.55; margin-bottom: 12px; }
+.news-digest-card .text-link { margin-top: auto; font-size: 10px; width: fit-content; }
+.pillar-business-grid { margin-top: 10px; }
+
+.no-js .pillar-filter-bar, .no-js [data-save-pillar] { display: none !important; }
+
+@media (max-width: 1100px) {
+  .pillar-main { padding-left: 0; }
+  .pillar-navigation { position: sticky; left: auto; top: 64px; bottom: auto; width: auto; height: auto; display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); flex-direction: row; padding: 0 var(--gutter); margin-bottom: 7px; gap: 0; background: transparent; border-right: 0; backdrop-filter: none; }
+  .pillar-navigation::before { display: none; }
+  .portal-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .name-timeline-list { grid-template-columns: repeat(4,minmax(0,1fr)); }
+  .pillar-entry-card { grid-template-columns: 140px minmax(0,1fr); }
+  .news-digest-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .pillar-history .history-eras-grid, .pillar-culture .pillar-cards-grid, .pillar-religion .pillar-cards-grid, .pillar-people .people-grid, .pillar-projects .projects-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+
+@media (max-width: 760px) {
+  .pillar-navigation { position: relative; top: auto; display: flex; flex-direction: row; grid-template-columns: none; overflow-x: auto; scrollbar-width: none; padding-inline: var(--gutter); }
+  .portal-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .pillar-intro { grid-template-columns: 1fr; gap: 14px; }
+  .pillar-cards-grid, .people-grid { grid-template-columns: 1fr; }
+  .pillar-entry-card { grid-template-columns: 1fr; }
+  .pillar-entry-media { height: 170px; min-height: 0; }
+  .name-timeline-list { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .news-digest-grid { grid-template-columns: 1fr; }
+  .pillar-profile-strip { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .pillar-profile-strip>a { align-items: flex-start; }
+  .pillar-history .history-eras-grid, .pillar-culture .pillar-cards-grid, .pillar-religion .pillar-cards-grid, .pillar-people .people-grid, .pillar-projects .projects-grid { grid-template-columns: 1fr; }
+  .pillar-main .other-areas>div { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .pillar-history .pillar-hero, .pillar-projects .pillar-hero { height: 365px; }
+}
+
+@media (max-width: 420px) {
+  .portal-grid { grid-template-columns: 1fr; }
+  .name-timeline-list { grid-template-columns: 1fr; }
+}

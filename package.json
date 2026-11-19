@@ -1,0 +1,24 @@
+{
+  "name": "visit-duvno",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "generate": "node scripts/generate-pages.js",
+    "test": "node --test tests/trip.test.js",
+    "test:static": "node --test tests/production/static.test.js",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "axe-core": "^4.14.0",
+    "linkedom": "^0.18.15",
+    "vite": "^8.3.8"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4"
+  }
+}
