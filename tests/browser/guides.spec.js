@@ -19,7 +19,7 @@ test('full guides retain favourites, switch language, and link back to the corre
   await expect(page.locator('#trip-dialog .trip-list li')).toHaveCount(1);
   await expect(page.locator('#trip-route-links a')).toHaveAttribute('href', /google.com\/maps\/dir/);
   await page.keyboard.press('Escape');
-  await page.locator('.breadcrumbs a').first().click();
+  await page.locator('.brand').click();
   await expect(page.locator('#hero-title')).toBeVisible();
   await expect(page.locator('html')).toHaveAttribute('lang', 'hr');
   expect(errors).toEqual([]);

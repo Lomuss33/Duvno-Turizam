@@ -265,13 +265,6 @@ export function pillarPageMarkup(pillar, language = 'hr', root = './') {
     projectsBodyMarkup(language, root);
 
   return `<main id="main" class="pillar-main pillar-${pillar.id}" data-pillar-page="${pillar.id}">
-    <nav class="breadcrumbs" aria-label="${tr.breadcrumbs}">
-      <a href="${homeHref(root, language)}">${tr.home}</a>
-      <span aria-hidden="true">/</span>
-      <a href="${homeHref(root, language)}#portal">${t.sixPages}</a>
-      <span aria-hidden="true">/</span>
-      <span aria-current="page">${text.name}</span>
-    </nav>
     ${pillarNavigationMarkup(pillar.id, language, root)}
     <section class="area-hero pillar-hero">
       <div class="area-hero-cover">
