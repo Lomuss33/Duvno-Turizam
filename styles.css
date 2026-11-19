@@ -1096,6 +1096,7 @@ body { padding-bottom: 82px; }
   .header { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); flex-wrap: initial; align-items: center; gap: 5px; padding: 7px var(--gutter) 8px; }
   .header .brand { grid-column: span 4; min-width: 0; height: 32px; min-height: 32px; }
   .header .brand svg { display: block; width: 22px; height: 25px; }
+  .header .brand > span { font-size: 14px; line-height: 1; letter-spacing: -.5px; }
   .header .brand-sub { margin-top: 2px; font-size: 5px; letter-spacing: 1.5px; }
   .header nav#navigation { display: contents; }
   .header nav#navigation::before { display: none; }
